@@ -8,13 +8,10 @@ def selectimg():
     global image
     
 
-    filetypes = (
-        ('Image files', '*.png, *.jpg , *.jpeg'),
-        ('All files', '*.*')
-    )
+    filetypes = (('Image files', '*.JPG,*.PNG,*.JPEG'),('All files', '*.*'))
 
     image=askopenfilename(
-    initialdir='',
+    initialdir='downloads',
     title='Select Image',
     filetypes=filetypes)
     label3 = Label(text='Image')
@@ -26,15 +23,13 @@ def selectimg():
 def selectaudi():
     global audio
 
-    filetypess = (
-        ('Audio files', '*.mp3,*.flac,*.ogg'),
-        ('All files', '*.*')
-    )
+    filetypes2 = (('Audio files', '*.*'),
+        ('All files', '*.*'))
 
     audio=askopenfilename(
-    initialdir='',
+    initialdir='downloads',
     title='Select Audio',
-    filetypes=filetypess)
+    filetypes=filetypes2)
 
     label2 = Label(text='Audio')
     label2.pack(padx=4, pady=2)
@@ -47,11 +42,12 @@ def selectaudi():
 def merge():
     global audio
     global image
-    bg='C:\\Users\\R\\Assets\\fondo.png'
+    bg=r'C:\Users\M\Downloads\Programa\fondo.png'
 # UNIR IMAGEN Y AUDIO PARA HACER VIDEO
 
     audio_clip = moviepy.editor.AudioFileClip(audio,fps=44100,buffersize=200000, nbytes=4)
     image_clip = moviepy.editor.ImageClip(image)
+    image_clip = image_clip.resize(height=1080)
     bg_clip =  moviepy.editor.ImageClip(bg)
     clip1_clip = image_clip.set_position(("center","center"))
     
@@ -63,7 +59,7 @@ def merge():
     video_clip.fps = 1
     video_clip.write_videofile(f'{audio}.mp4', fps=1,codec="libx264",audio_codec=None, audio_bitrate="192k", temp_audiofile=None)
    
-    
+
     
         
     	
@@ -71,7 +67,7 @@ def merge():
 # VENTANA TAMAÑO,COLOR,ETC
 root = Tk()
 root.geometry('700x300')
-root.iconbitmap('C:\\Users\\R\\Assets\\raq.ico')
+root.iconbitmap(r'C:\Users\M\Downloads\Programa\raq.ico')
 root.title('Audio + Image')
 root.config(bg="#363636")
 
