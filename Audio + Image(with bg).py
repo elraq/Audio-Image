@@ -42,7 +42,7 @@ def selectaudi():
 def merge():
     global audio
     global image
-    bg=r'C:\Users\M\Downloads\Programa\fondo.png'
+    bg=r'Assets\fondo.png'
 # UNIR IMAGEN Y AUDIO PARA HACER VIDEO
 
     audio_clip = moviepy.editor.AudioFileClip(audio,fps=44100,buffersize=200000, nbytes=4)
