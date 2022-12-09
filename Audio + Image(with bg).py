@@ -67,7 +67,7 @@ def merge():
 # VENTANA TAMAÑO,COLOR,ETC
 root = Tk()
 root.geometry('700x300')
-root.iconbitmap(r'C:\Users\M\Downloads\Programa\raq.ico')
+root.iconbitmap(r'Assets\raq.ico')
 root.title('Audio + Image')
 root.config(bg="#363636")
 
